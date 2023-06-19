@@ -1,0 +1,15 @@
+<button
+  class="btn"
+  [ngStyle]="{
+    color: props.color,
+    'background-color': props.bgColor,
+    width: props.width,
+    font: props.font,
+    border: props.border,
+    padding: props.padding,
+    'border-radius': props.borderRadius
+  }"
+  (click)="trigger()"
+>
+  <ng-content></ng-content>
+</button>

@@ -1,0 +1,197 @@
+.section-wrapper {
+  display: grid;
+  row-gap: 5rem;
+  overflow: hidden;
+
+  .join {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+
+    .img-wrapper {
+      flex: 1;
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+
+    .details {
+      flex: 1;
+      display: grid;
+      gap: 1rem;
+
+      .title {
+        color: #ff6a15;
+        font: 300 40px "Roboto", sans-serif;
+      }
+
+      .subtitle {
+        color: #121212;
+        font: 600 32px "Poppins", sans-serif;
+      }
+
+      .texts {
+        color: #1e1e1e;
+        line-height: 35.04px;
+        font: 500 24px "Roboto", sans-serif;
+      }
+    }
+  }
+
+  .account {
+    background: linear-gradient(
+      110.18deg,
+      #1e1e1e 14.46%,
+      #ff6a15 45.25%,
+      #1e1e1e 84.94%
+    );
+
+    .wrapper {
+      background-image: url("../../../assets/svg/kid.svg");
+      background-repeat: no-repeat;
+      background-position: left;
+      display: grid;
+      gap: 2rem;
+      place-items: center;
+
+      .contact {
+        display: flex;
+        gap: 12px;
+        font: 600 62px "Roboto", sans-serif;
+        color: #ffffff;
+      }
+
+      .contact:first-child {
+        margin-top: 4rem;
+      }
+
+      .card {
+        position: relative;
+        padding: 1rem;
+
+        img {
+          opacity: 0.4;
+          max-width: 100%;
+          height: auto;
+        }
+
+        .no {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: #ffffff;
+          mix-blend-mode: overlay;
+          display: grid;
+          gap: 1rem;
+        }
+
+        .no p:first-child {
+          font: 600 24px "Montserrat", sans-serif;
+        }
+        .no p:last-child {
+          font: 700 60px "Montserrat", sans-serif;
+        }
+
+        .details {
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          bottom: 40px;
+          width: 80%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          .texts {
+            color: #ffee5c;
+            mix-blend-mode: overlay;
+            display: grid;
+            gap: 1rem;
+          }
+
+          .texts p {
+            font: 600 24px "Montserrat", sans-serif;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .section-wrapper {
+    .account {
+      .wrapper {
+        .contact {
+          text-align: center;
+          flex-direction: column;
+          align-items: center;
+          font: 600 42px "Roboto", sans-serif;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .section-wrapper {
+    .join {
+      flex-direction: column-reverse;
+
+      .details {
+        text-align: center;
+        place-items: center;
+
+        .title {
+          font-size: 30px;
+        }
+
+        .subtitle {
+          font-size: 25px;
+        }
+
+        .texts {
+          text-align: left;
+          font-size: 19px;
+        }
+      }
+    }
+
+    .account {
+      .wrapper {
+        .card {
+          .no {
+            top: 50%;
+            gap: 0.5rem;
+          }
+
+          .no p:first-child,
+          .no p:last-child {
+            font: 600 22px "Montserrat", sans-serif;
+          }
+
+          .details {
+            bottom: 30px;
+            .texts {
+              gap: 12px;
+              p {
+                font: 600 11px "Montserrat", sans-serif;
+              }
+            }
+          }
+        }
+        .contact {
+          text-align: center;
+          flex-direction: column;
+          align-items: center;
+          font: 600 22px "Roboto", sans-serif;
+        }
+      }
+    }
+  }
+}

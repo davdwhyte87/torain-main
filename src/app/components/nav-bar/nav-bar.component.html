@@ -1,0 +1,83 @@
+<nav class="nav-container">
+  <div class="logo">
+    <img
+      src="/assets/png/logo-new.png"
+      width="60"
+      alt="torain logo"
+      routerLink="/"
+    />
+    <p>Torain Foundation</p>
+  </div>
+  <ul class="desktop">
+    <li
+      class="links"
+      *ngFor="let item of links"
+      [routerLink]="item.path"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      {{ item.name }}
+    </li>
+  </ul>
+  <app-button class="btn">Get Involved</app-button>
+  <img
+    class="menu"
+    src="/assets/png/menu.png"
+    alt="menu icon"
+    (click)="onToggle()"
+  />
+  <ul class="mobile" *ngIf="toggle">
+    <li
+      class="links"
+      *ngFor="let item of links"
+      [routerLink]="item.path"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      (click)="toggle = false"
+    >
+      {{ item.name }}
+    </li>
+  </ul>
+</nav>
+<section class="hero">
+  <div
+    class="overlay"
+    [ngStyle]="{ 'place-items': path === '/' ? 'end' : 'center' }"
+  >
+    <div class="cta" *ngIf="path === '/'">
+      <h3>Join Us In Our Fight For A Better Tomorrow</h3>
+      <div>
+        <p>
+          Eradicating poverty, improving education, and enhancing health for the
+          most
+        </p>
+        <p>vulnerable in our society.</p>
+      </div>
+      <app-button
+        (onClick)="toDonate()"
+        [props]="{
+                      color: '#1E1E1E',
+                      font: '700 36px Roboto',
+                      width: 'auto',
+                      border: '0px',
+                      bgColor: '#FF6A15',
+                      borderRadius: '20px',
+                      padding: isMobile ? '22px 50px' : '22px 185px',
+                    }"
+        >Donate</app-button
+      >
+    </div>
+    <div class="cta_2" *ngIf="path === '/about'">
+      <p class="title">About Us</p>
+      <p class="subtitle">The TORAIN FOUNDATION / ABOUT US</p>
+    </div>
+    <div class="cta_2" *ngIf="path === '/donate'">
+      <p class="title">Donate Now</p>
+      <p class="subtitle">The TORAIN FOUNDATION / DONATE</p>
+    </div>
+    <div class="cta_2" *ngIf="path === '/media'">
+      <p class="title">Media</p>
+      <p class="subtitle">The TORAIN FOUNDATION / MEDIA</p>
+    </div>
+  </div>
+</section>

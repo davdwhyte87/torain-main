@@ -1,0 +1,31 @@
+.section-wrapper {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0px 10px;
+
+  .header {
+    display: grid;
+    place-items: center;
+    margin-bottom: 2rem;
+
+    .title {
+      color: #ff6a15;
+      font: 300 40px "Roboto", sans-serif;
+    }
+  }
+
+  .content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 12px;
+
+    .wrap {
+      width: 100%;
+
+      img {
+        object-fit: contain;
+        width: 100%;
+      }
+    }
+  }
+}

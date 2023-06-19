@@ -1,0 +1,250 @@
+.section-wrapper {
+  display: grid;
+  row-gap: 5rem;
+  overflow: hidden;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0px 10px;
+  margin-bottom: 5rem;
+
+  .know {
+    display: flex;
+    gap: 1rem;
+
+    .img-wrapper {
+      flex: 1;
+      position: relative;
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+
+    .details {
+      flex: 1;
+      display: grid;
+      gap: 1rem;
+
+      .title {
+        color: #ff6a15;
+        font: 300 40px "Roboto", sans-serif;
+      }
+
+      .subtitle {
+        color: #121212;
+        line-height: 44px;
+        font: 600 32px "Poppins", sans-serif;
+      }
+
+      .texts {
+        color: #1e1e1e;
+        line-height: 35.04px;
+        font: 500 24px "Roboto", sans-serif;
+      }
+    }
+  }
+
+  .meet {
+    display: grid;
+    gap: 12rem;
+
+    .header {
+      display: grid;
+      gap: 10px;
+      justify-content: center;
+
+      .title {
+        color: #121212;
+        font: 600 62px "Poppins", sans-serif;
+      }
+
+      .subtitle {
+        color: #ff6a15;
+        font: 275 36px "Poppins", sans-serif;
+      }
+    }
+
+    .content {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+
+      .img-wrapper {
+        flex: 1.5;
+        position: relative;
+        display: grid;
+        place-items: center;
+
+        img {
+          max-width: 100%;
+          height: auto;
+        }
+
+        .ellipse,
+        .cube,
+        .img-text,
+        .circle {
+          position: absolute;
+          z-index: 2;
+        }
+
+        .ellipse {
+          top: -50px;
+          left: 0;
+          z-index: -1;
+        }
+
+        .cube {
+          top: -40px;
+          right: 10px;
+        }
+
+        .circle {
+          bottom: -50px;
+          left: 4px;
+          z-index: -1;
+        }
+
+        .img-text {
+          bottom: -70px;
+          right: 140px;
+          color: #ff6a15;
+          font: 400 44px "Poppins", sans-serif;
+        }
+      }
+
+      .texts {
+        flex: 1;
+        color: #1e1e1e;
+        line-height: 35.04px;
+        font: 500 24px "Roboto", sans-serif;
+      }
+    }
+
+    .content_2 {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 4rem;
+      align-items: center;
+      flex-direction: row-reverse;
+
+      .img-wrapper {
+        flex: 1.5;
+        display: grid;
+        place-items: center;
+        position: relative;
+
+        img {
+          max-width: 100%;
+          height: auto;
+        }
+
+        .ellipse,
+        .cube,
+        .img-text,
+        .circle {
+          position: absolute;
+          z-index: 2;
+        }
+
+        .ellipse {
+          top: -50px;
+          left: 0;
+          z-index: -1;
+        }
+
+        .cube {
+          top: -40px;
+          right: 20px;
+        }
+
+        .circle {
+          bottom: -85px;
+          left: 4px;
+          z-index: -1;
+        }
+
+        .img-text {
+          right: -10px;
+          bottom: -70px;
+          color: #ff6a15;
+          font: 400 44px "Poppins", sans-serif;
+        }
+      }
+
+      .texts {
+        flex: 1;
+        color: #1e1e1e;
+        line-height: 35.04px;
+        font: 500 24px "Roboto", sans-serif;
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .section-wrapper {
+    .know {
+      flex-direction: column-reverse;
+
+      .img-wrapper {
+        margin: auto;
+      }
+
+      .details {
+        .title {
+          font-size: 32px;
+        }
+
+        .subtitle {
+          font-size: 25px;
+        }
+        .texts {
+          font-size: 19px !important;
+        }
+      }
+    }
+
+    .meet {
+      gap: 4rem;
+      .header {
+        text-align: center;
+        .title {
+          font: 600 32px "Poppins", sans-serif;
+        }
+
+        .subtitle {
+          font: 275 20px "Poppins", sans-serif;
+        }
+      }
+      .content,
+      .content_2 {
+        flex-direction: column;
+        gap: 4rem;
+        .ellipse,
+        .circle,
+        .cube {
+          width: 80px;
+        }
+        .circle {
+          bottom: -25px !important;
+        }
+        .img-text {
+          bottom: -30px !important;
+          font: 400 24px "Poppins", sans-serif !important;
+        }
+
+        .texts {
+          font-size: 19px !important;
+        }
+      }
+
+      .content_2 {
+        .img-text {
+          right: 3px !important;
+        }
+      }
+    }
+  }
+}

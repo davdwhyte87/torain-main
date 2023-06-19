@@ -1,0 +1,134 @@
+<footer
+  [ngStyle]="{
+    'padding-top': isHome ? '280px' : '40px'
+  }"
+>
+  <section class="media" *ngIf="isHome">
+    <div class="wrapper">
+      <div class="text">
+        <p class="title">MEDIA</p>
+        <p class="subtitle">
+          Capturing Memories of Our <br />
+          Impactful Events
+        </p>
+        <p class="details">
+          At Torain Foundation&comma; we are committed to creating lasting
+          change in our communities&period; Our special events bring together
+          like&hyphen;minded individuals who share our passion for making a
+          difference&period; We understand the importance of capturing these
+          moments&comma; which is why we have an extensive collection of photos
+          that document our events&period; Browse through our gallery to see the
+          smiling faces of those we have helped and the impact that we have made
+          together&period;
+        </p>
+        <app-button
+          [props]="{
+            color: '#FFFFFF',
+            font: '400 16px Poppins, sans-serif',
+            width: isMobile ? '100%' : 'auto',
+            border: '0px',
+            bgColor: '#697077',
+            padding: '14px 24px',
+            borderRadius: '11px'
+          }"
+          (onClick)="onRoute('/media')"
+          >View media</app-button
+        >
+      </div>
+      <div class="kidz">
+        <img
+          src="/assets/svg/kids6.svg"
+          alt="children smiling and running"
+          class="kids-run"
+        />
+        <img
+          src="/assets/jpeg/achild3.jpeg"
+          alt="children listening in class"
+          class="kids-sit"
+        />
+      </div>
+      <div class="twirl">
+        <img src="assets/svg/twirl2.svg" alt="smaller twirling design" />
+      </div>
+    </div>
+  </section>
+  <div class="container">
+    <div class="header">
+      <div class="logo">
+        <img
+          src="/assets/png/logo-new.png"
+          width="60"
+          alt="torain logo"
+          routerLink="/"
+        />
+        <p>Torain Foundation</p>
+      </div>
+      <div class="input-donate">
+        <app-input [width]="isMobile ? '100%' : '349px'" />
+        <app-button
+          class="btn"
+          [props]="{
+            color: '#1E1E1E',
+            font: '600 16px Roboto',
+            width: isMobile ? '100%' : 'auto',
+            border: '0px',
+            bgColor: '#FF6A15',
+            padding: '14px 24px',
+          }"
+          >Donate Now</app-button
+        >
+      </div>
+    </div>
+    <div class="bottom">
+      <div class="cta">
+        <p class="main-text">
+          Give hope to those in need&comma; donate today&excl;
+        </p>
+        <app-button
+          [props]="{
+            color: '#1E1E1E',
+            font: isMobile ? '600 20px Roboto' : '600 30px Roboto',
+            width: isMobile ? '100%' : '320px',
+            border: '0px',
+            bgColor: '#FF6A15',
+            padding: isMobile ? '14px' : '14px 24px',
+            borderRadius: '50px'
+          }"
+          (onClick)="onRoute('/donate')"
+        >
+          <div class="content">
+            <img src="/assets/svg/heart.svg" alt="heart icon" />
+            <p>Donate Now</p>
+          </div>
+        </app-button>
+      </div>
+      <div class="links">
+        <p>Organization</p>
+        <li routerLink="/about">About Us</li>
+        <li routerLink="/contact">Contact Us</li>
+      </div>
+      <div class="links">
+        <p>Links</p>
+        <li>Media</li>
+        <li *ngIf="!isMobile"></li>
+        <li *ngIf="!isMobile"></li>
+      </div>
+      <div class="social">
+        <p>Join Us</p>
+        <div>
+          <a *ngFor="let item of socials" [href]="item.url">
+            <img [src]="item.path" [alt]="item.alt" />
+          </a>
+        </div>
+      </div>
+    </div>
+    <hr class="line" />
+    <div class="last">
+      <p>Copyright {{ date }} by The Torain Foundation</p>
+      <div class="mail">
+        <app-msg color="#ffffff" />
+        <p>inquiry@toraincharityfoundation.org</p>
+      </div>
+    </div>
+  </div>
+</footer>

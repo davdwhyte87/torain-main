@@ -1,0 +1,9 @@
+<div class="input-container" [ngStyle]="{width, height}">
+  <app-msg />
+  <input
+    [type]="type"
+    [placeholder]="placeholder"
+    (input)="(onInputChange)"
+    class="input"
+  />
+</div>
