@@ -1,9 +1,9 @@
 <footer
   [ngStyle]="{
-    'padding-top': isHome ? '280px' : '40px'
+    'padding-top': isHome == '/' || isHome === '' ? '280px' : '40px'
   }"
 >
-  <section class="media" *ngIf="isHome">
+  <section class="media" *ngIf="isHome === '/' || isHome === ''">
     <div class="wrapper">
       <div class="text">
         <p class="title">MEDIA</p>
@@ -12,7 +12,7 @@
           Impactful Events
         </p>
         <p class="details">
-          At Torain Foundation&comma; we are committed to creating lasting
+          At Torain Charity Foundation&comma; we are committed to creating lasting
           change in our communities&period; Our special events bring together
           like&hyphen;minded individuals who share our passion for making a
           difference&period; We understand the importance of capturing these
@@ -61,21 +61,28 @@
           alt="torain logo"
           routerLink="/"
         />
-        <p>Torain Foundation</p>
+        <p>Torain Charity Foundation</p>
       </div>
       <div class="input-donate">
-        <app-input [width]="isMobile ? '100%' : '349px'" />
+        <app-input
+          [width]="isMobile ? '100%' : '349px'"
+          [type]="type"
+          (inputChanged)="onInput($event)"
+        />
         <app-button
+          (onClick)="onAdd()"
           class="btn"
           [props]="{
             color: '#1E1E1E',
             font: '600 16px Roboto',
             width: isMobile ? '100%' : 'auto',
             border: '0px',
+            loading,
+            disabled: loading,
             bgColor: '#FF6A15',
             padding: '14px 24px',
           }"
-          >Donate Now</app-button
+          >Subscribe</app-button
         >
       </div>
     </div>
@@ -116,7 +123,7 @@
       <div class="social">
         <p>Join Us</p>
         <div>
-          <a *ngFor="let item of socials" [href]="item.url">
+          <a target="_blank" *ngFor="let item of socials" [href]="item.url">
             <img [src]="item.path" [alt]="item.alt" />
           </a>
         </div>
@@ -124,10 +131,10 @@
     </div>
     <hr class="line" />
     <div class="last">
-      <p>Copyright {{ date }} by The Torain Foundation</p>
+      <p>Copyright {{ date }} by The Torain Charity Foundation</p>
       <div class="mail">
         <app-msg color="#ffffff" />
-        <p>inquiry@toraincharityfoundation.com</p>
+        <p>inquiry@toraincharityfoundation.org</p>
       </div>
     </div>
   </div>

@@ -1,0 +1,25 @@
+<div class="logout" (click)="logout()">
+  <mat-icon>exit_to_app</mat-icon>
+</div>
+
+<div class="container">
+  <div class="upload">
+    <p>Select File</p>
+    <input
+      type="file"
+      #fileInput
+      style="display: none"
+      (change)="onFileSelected($event)"
+    />
+    <button
+      (click)="chooseFile()"
+      mat-fab
+      class="btn"
+      [disabled]="isLoading"
+      aria-label="upload button with upload icon"
+    >
+      <mat-spinner [diameter]="25" *ngIf="isLoading; else upload"></mat-spinner>
+      <ng-template #upload><mat-icon>cloud_upload</mat-icon></ng-template>
+    </button>
+  </div>
+</div>

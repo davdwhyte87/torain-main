@@ -6,9 +6,18 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./input.component.scss'],
 })
 export class InputComponent {
+  inputValue!: string;
   @Input() width: string = '349px';
   @Input() height: string = '48px';
   @Input() type: string = 'text';
-  @Output() onInputChange = new EventEmitter<Event>();
+  @Output() inputChanged = new EventEmitter<string>();
   @Input() placeholder: string = 'Enter your email to get the latest news...';
+
+  onInputChange(): void {
+    this.inputChanged.emit(this.inputValue);
+  }
+
+  onReset() {
+    this.inputValue = '';
+  }
 }

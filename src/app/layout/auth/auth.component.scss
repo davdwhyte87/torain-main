@@ -1,0 +1,18 @@
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+
+  .logo {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    cursor: pointer;
+
+    p {
+      color: #697077;
+      font: 700 24px "Roboto";
+    }
+  }
+}

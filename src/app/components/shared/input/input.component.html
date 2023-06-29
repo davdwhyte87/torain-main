@@ -3,7 +3,8 @@
   <input
     [type]="type"
     [placeholder]="placeholder"
-    (input)="(onInputChange)"
+    [(ngModel)]="inputValue"
+    (input)="onInputChange()"
     class="input"
   />
 </div>

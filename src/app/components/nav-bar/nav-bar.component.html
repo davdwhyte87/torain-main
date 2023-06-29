@@ -6,7 +6,7 @@
       alt="torain logo"
       routerLink="/"
     />
-    <p>Torain Foundation</p>
+    <p>Torain Charity Foundation</p>
   </div>
   <ul class="desktop">
     <li
@@ -19,7 +19,7 @@
       {{ item.name }}
     </li>
   </ul>
-  <app-button class="btn">Get Involved</app-button>
+  <app-button class="btn" (onClick)="toDonate()">Get Involved</app-button>
   <img
     class="menu"
     src="/assets/png/menu.png"
@@ -42,9 +42,11 @@
 <section class="hero">
   <div
     class="overlay"
-    [ngStyle]="{ 'place-items': path === '/' ? 'end' : 'center' }"
+    [ngStyle]="{
+      'place-items': path === '/' || path === '' ? 'end' : 'center'
+    }"
   >
-    <div class="cta" *ngIf="path === '/'">
+    <div class="cta" *ngIf="path === '/' || path === ''">
       <h3>Join Us In Our Fight For A Better Tomorrow</h3>
       <div>
         <p>
@@ -69,15 +71,15 @@
     </div>
     <div class="cta_2" *ngIf="path === '/about'">
       <p class="title">About Us</p>
-      <p class="subtitle">The TORAIN FOUNDATION / ABOUT US</p>
+      <p class="subtitle">The Torain Charity Foundation / ABOUT US</p>
     </div>
     <div class="cta_2" *ngIf="path === '/donate'">
       <p class="title">Donate Now</p>
-      <p class="subtitle">The TORAIN FOUNDATION / DONATE</p>
+      <p class="subtitle">The Torain Charity Foundation / DONATE</p>
     </div>
     <div class="cta_2" *ngIf="path === '/media'">
       <p class="title">Media</p>
-      <p class="subtitle">The TORAIN FOUNDATION / MEDIA</p>
+      <p class="subtitle">The Torain Charity Foundation / MEDIA</p>
     </div>
   </div>
 </section>

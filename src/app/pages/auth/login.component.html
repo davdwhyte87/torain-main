@@ -1,0 +1,42 @@
+<div class="container">
+  <mat-card class="card">
+    <mat-card-header class="header">
+      <p>Log In</p>
+    </mat-card-header>
+    <mat-card-content>
+      <form (ngSubmit)="onLogin()">
+        <mat-form-field class="full">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            placeholder="Enter Email"
+            type="email"
+            required
+            name="email"
+            [(ngModel)]="email"
+          />
+        </mat-form-field>
+        <mat-form-field class="full">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            placeholder="Enter Password"
+            type="password"
+            required
+            name="password"
+            [(ngModel)]="password"
+          />
+        </mat-form-field>
+        <button mat-raised-button class="btn full" [disabled]="isLoading">
+          <mat-spinner
+            [diameter]="25"
+            *ngIf="isLoading; else text"
+            class="spinner"
+          ></mat-spinner>
+          <ng-template #text>Log In</ng-template>
+        </button>
+        <div></div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

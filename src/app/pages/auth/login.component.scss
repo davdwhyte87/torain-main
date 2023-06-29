@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: calc(100vh - 60px);
+
+  .card {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px;
+    display: grid;
+    gap: 12px;
+
+    .header {
+      display: flex;
+      justify-content: center;
+
+      p {
+        font-size: 19px;
+        color: #ff6a15;
+        font-weight: bold;
+      }
+    }
+    .full {
+      width: 100%;
+    }
+    .btn {
+      background-color: #ff6a15;
+      color: #fff;
+    }
+    .btn.full {
+      .mat-mdc-progress-spinner {
+        --mdc-circular-progress-active-indicator-color: #fff;
+      }
+    }
+  }
+}

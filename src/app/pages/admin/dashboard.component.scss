@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: calc(100vh - 60px);
+
+  .upload {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: center;
+
+    p {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .btn {
+      background-color: #ff6a15;
+
+      .mat-mdc-progress-spinner {
+        --mdc-circular-progress-active-indicator-color: #fff;
+      }
+    }
+  }
+}
+
+.logout {
+  cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}

@@ -3,19 +3,25 @@
     <div class="header">
       <p class="title">Media</p>
     </div>
-    <div class="content">
-      <div class="wrap">
-        <img src="assets/jpeg/achild1.jpeg" alt="kids in class" />
-      </div>
-      <div class="wrap">
-        <img src="assets/svg/kids2.svg" alt="kids smiling" />
-      </div>
-      <div class="wrap">
-        <img src="assets/svg/kids5.svg" alt="kids learning" />
-      </div>
-      <div class="wrap">
-        <img src="assets/jpeg/achild2.jpeg" alt="kids studying" />
-      </div>
+    <div *ngIf="isLoading; else asset" class="center">
+      <mat-spinner [diameter]="30" class="spinner"></mat-spinner>
     </div>
+    <ng-template #asset>
+      <div class="content">
+        <div class="wrap" *ngFor="let file of files">
+          <ng-container *ngIf="isImage(file.name)">
+            <img
+              [src]="file.url"
+              alt="media asset"
+              width="auto"
+              height="auto"
+            />
+          </ng-container>
+          <ng-container *ngIf="isVideo(file.name)">
+            <video [src]="file.url" controls width="100%" height="auto"></video>
+          </ng-container>
+        </div>
+      </div>
+    </ng-template>
   </section>
 </div>

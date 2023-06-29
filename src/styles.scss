@@ -13,3 +13,20 @@
 .active {
   color: #ff6a15 !important;
 }
+
+.mat-typography p {
+  margin: 0;
+}
+
+.mat-typography {
+  line-height: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

@@ -7,6 +7,7 @@ interface IBtn {
   border: string;
   bgColor: string;
   padding: string;
+  loading?: boolean;
   disabled?: boolean;
   borderRadius?: string;
 }
@@ -19,6 +20,7 @@ interface IBtn {
 export class ButtonComponent {
   @Input() props: IBtn = {
     width: 'auto',
+    loading: false,
     disabled: false,
     color: '#ffffff',
     bgColor: '#FF6A15',

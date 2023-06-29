@@ -14,10 +14,22 @@
     }
   }
 
+  .center {
+    display: grid;
+    place-content: center;
+    margin-bottom: 20px;
+
+    .mat-mdc-progress-spinner {
+      --mdc-circular-progress-active-indicator-color: #697077;
+    }
+  }
+
   .content {
     display: grid;
+    padding: 12px;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 12px;
+    column-gap: 12px;
+    row-gap: 18px;
 
     .wrap {
       width: 100%;

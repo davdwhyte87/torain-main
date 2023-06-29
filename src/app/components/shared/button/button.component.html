@@ -1,5 +1,6 @@
 <button
   class="btn"
+  [disabled]="props.disabled"
   [ngStyle]="{
     color: props.color,
     'background-color': props.bgColor,
@@ -11,5 +12,8 @@
   }"
   (click)="trigger()"
 >
-  <ng-content></ng-content>
+  <mat-spinner [diameter]="25" *ngIf="props.loading; else a"></mat-spinner>
+  <ng-template #a>
+    <ng-content></ng-content>
+  </ng-template>
 </button>
