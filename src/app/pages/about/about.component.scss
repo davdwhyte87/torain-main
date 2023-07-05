@@ -56,6 +56,7 @@
 
       .title {
         color: #121212;
+        text-align: center;
         font: 600 62px "Poppins", sans-serif;
       }
 
@@ -108,7 +109,7 @@
 
         .img-text {
           bottom: -70px;
-          right: 140px;
+          right: 50px;
           color: #ff6a15;
           font: 400 44px "Poppins", sans-serif;
         }
@@ -231,6 +232,7 @@
           bottom: -25px !important;
         }
         .img-text {
+          right: 0px !important;
           bottom: -30px !important;
           font: 400 24px "Poppins", sans-serif !important;
         }
