@@ -1,4 +1,4 @@
-import { catchError, tap } from 'rxjs';
+import { catchError, forkJoin, tap } from 'rxjs';
 import { Component, ViewChild } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FirebaseService } from 'src/app/service/firebase/firebase.service';
@@ -24,14 +24,17 @@ export class DashboardComponent {
   }
 
   onFileSelected(event: any) {
+    if (event.target.files?.length > 10) {
+      this.openSnackBar('Maximum of 10 files exceeded');
+      return;
+    }
     this.isLoading = true;
-    const file = event.target.files[0];
-    this.firebase.uploadImage(file).subscribe({
-      next: (snapshot) => {
-        if (snapshot?.bytesTransferred === snapshot?.totalBytes) {
-          this.isLoading = false;
-          this.openSnackBar('Upload successful');
-        }
+    const files = event.target.files;
+    const toUpload = this.firebase.uploadImage(files);
+    forkJoin(toUpload).subscribe({
+      next: () => {
+        this.isLoading = false;
+        this.openSnackBar('Upload successful');
       },
       error: () => {
         this.isLoading = false;
@@ -53,6 +56,6 @@ export class DashboardComponent {
   }
 
   openSnackBar(msg: string) {
-    this.snackBar.open(msg, 'close', { duration: 1000 });
+    this.snackBar.open(msg, 'close', { duration: 2000 });
   }
 }

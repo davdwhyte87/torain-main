@@ -1,4 +1,6 @@
 import { Subscription } from 'rxjs';
+import { filter } from 'rxjs/operators';
+import { Location } from '@angular/common';
 import { NavigationEnd, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { InputComponent } from '../shared/input/input.component';
@@ -50,15 +52,18 @@ export class FooterComponent {
     private router: Router,
     private mailchimp: MailchimpService,
     private firebase: FirebaseService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private location: Location
   ) {}
 
   ngOnInit() {
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        this.isHome = this.router.url;
-      }
-    });
+    this.isHome = this.location.path();
+
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe(() => {
+        this.isHome = this.location.path();
+      });
 
     this.checkScreenWidth();
   }
