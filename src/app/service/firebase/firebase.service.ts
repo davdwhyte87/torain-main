@@ -39,11 +39,17 @@ export class FirebaseService {
     });
   }
 
-  uploadImage(file: File) {
-    const filePath = `media/${file.name}`;
-    const upload = this.storage.upload(filePath, file);
+  uploadImage(files: FileList) {
+    const uploadTasks = [];
 
-    return upload.snapshotChanges();
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      const filePath = `media/${file.name}`;
+      const uploadTask = this.storage.upload(filePath, file);
+      uploadTasks.push(uploadTask.snapshotChanges());
+    }
+
+    return uploadTasks;
   }
 
   getImages(): Observable<any> {

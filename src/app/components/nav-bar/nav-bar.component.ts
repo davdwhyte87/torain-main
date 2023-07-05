@@ -1,3 +1,5 @@
+import { filter } from 'rxjs/operators';
+import { Location } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 
@@ -17,14 +19,16 @@ export class NavBarComponent {
     { name: 'donate', path: '/donate' },
   ];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private location: Location) {}
 
   ngOnInit() {
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        this.path = this.router.url;
-      }
-    });
+    this.path = this.location.path();
+
+    this.router.events
+      .pipe(filter((event) => event instanceof NavigationEnd))
+      .subscribe(() => {
+        this.path = this.location.path();
+      });
     this.checkScreenWidth();
   }
 
